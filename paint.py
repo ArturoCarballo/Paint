@@ -9,12 +9,12 @@ Exercises
 5. Add width parameter.
 """
 
-from turtle import *
+from turtle import * # Se importa la libreria turtle
 
 from freegames import vector
 
 
-def line(start, end):
+def line(start, end): # Funcion para crear una linea
     """Draw line from start to end."""
     up()
     goto(start.x, start.y)
@@ -22,7 +22,7 @@ def line(start, end):
     goto(end.x, end.y)
 
 
-def square(start, end):
+def square(start, end): # Funcion crea un cuadrado
     """Draw square from start to end."""
     up()
     goto(start.x, start.y)
@@ -36,7 +36,7 @@ def square(start, end):
     end_fill()
 
 
-def tcircle(start, end):
+def tcircle(start, end): # Funcion crea un circulo
     """Draw circle from start to end."""
     up()
     goto(start.x, start.y)
@@ -47,7 +47,7 @@ def tcircle(start, end):
     end_fill()
 
 
-def rectangle(start, end):
+def rectangle(start, end): # Funcion crea un rectangulo
     """Draw rectangle from start to end."""
     up()
     goto(start.x, start.y)
@@ -63,7 +63,7 @@ def rectangle(start, end):
     end_fill()
 
 
-def triangle(start, end):
+def triangle(start, end): # Funcion crea un triangulo
     """Draw triangle from start to end."""
     up()
     goto(start.x, start.y)
@@ -77,7 +77,7 @@ def triangle(start, end):
     end_fill()
 
 
-def tap(x, y):
+def tap(x, y): # Registra la posicion del click
     """Store starting point or draw shape."""
     start = state['start']
 
@@ -90,22 +90,25 @@ def tap(x, y):
         state['start'] = None
 
 
-def store(key, value):
+def store(key, value): # Guarda datos
     """Store value in state at key."""
     state[key] = value
 
 
 state = {'start': None, 'shape': line}
-setup(420, 420, 370, 0)
-onscreenclick(tap)
-listen()
-onkey(undo, 'u')
+setup(420, 420, 370, 0) # Crea el canvas
+onscreenclick(tap) # Pone la funcion tap cuando se hace click
+listen() # Se prepara para recibir input de teclas
+onkey(undo, 'u') # Regresa el cambio
+
+# Colores
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
 onkey(lambda: color('purple'), 'P')
+# Figuras
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', tcircle), 'c')
